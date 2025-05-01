@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>007빵</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="shortcut icon" href="img/logo_icon2.ico">
+</head>
+
+<body>
+  <!-- header -->
+  <header>
+    <h1 class="logo">
+      <a href="index.html">
+        <img src="img/logo2.png" alt="">
+      </a>
+    </h1>
+    <ul class="menubar">
+      <li>
+        <a href="index.html">HOME</a>
+      </li>
+
+      <li>
+        <a href="#">ABOUT</a>
+        <ul class="submenu">
+          <li><a href="#">베이커리 소개</a></li>
+          <li><a href="#">찾아오시는 길</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">DESSERT</a>
+        <ul class="submenu">
+          <li><a href="#">케이크</a></li>
+          <li><a href="#">마카롱</a></li>
+          <li><a href="#">에그타르트</a></li>
+          <li><a href="#">와플</a></li>
+          <li><a href="#">빵</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">BEVERAGE</a>
+        <ul class="submenu">
+          <li><a href="#">커피</a></li>
+          <li><a href="#">에이드</a></li>
+          <li><a href="#">스무디</a></li>
+          <li><a href="#">쥬스</a></li>
+          <li><a href="#">우유</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">CS</a>
+        <ul class="submenu">
+          <li><a href="#">공지사항</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">문의하기</a></li>
+          <li><a href="sidepage03.html">예약하기</a></li>
+        </ul>
+      </li>
+      <div class="box">
+        <div class="container-1">
+          <img src="/img/find.png" alt="">
+          <input type="search" id="search" placeholder="Search..." />
+        </div>
+      </div>
+    </ul>
+  </header>
+
+  <!-- banner -->
+  <div class="banner">
+    <div class="slides fade">
+      <a href="sidepage01.html">
+        <div class="slideNumber">1 / 6</div>
+        <img src="img/banner1.jpg" style="width: 100%;">
+        <div class="text">[추천] 지친 당신을 위한 달콤함 한조각</div>
+      </a>
+    </div>
+    <div class="slides fade">
+      <a href="#">
+        <div class="slideNumber">2 / 6</div>
+        <img src="img/banner2.jpg" style="width: 100%;">
+        <div class="text">[겨울 한정] ★입안에서 녹는 탱글탱글 푸딩★</div>
+      </a>
+    </div>
+    <div class="slides fade">
+      <a href="#">
+        <div class="slideNumber">3 / 6</div>
+        <img src="img/banner3.jpg" style="width: 100%;">
+        <div class="text">병아리도 눈을 떼지 못하는~ 상큼 레몬 마카롱!</div>
+      </a>
+    </div>
+    <div class="slides fade">
+      <a href="#">
+        <div class="slideNumber">4 / 6</div>
+        <img src="img/banner4.jpg" style="width: 100%;">
+        <div class="text">에그타르트의 원조 포르투칼인도 인정한 겉바속촉!</div>
+      </a>
+    </div>
+    <div class="slides fade">
+      <a href="#">
+        <div class="slideNumber">5 / 6</div>
+        <img src="img/banner5.jpg" style="width: 100%;">
+        <div class="text">바삭!바삭!바삭!!! 멈출 수 없는 바삭함</div>
+      </a>
+    </div>
+    <div class="slides fade">
+      <a href="#">
+        <div class="slideNumber">6 / 6</div>
+        <img src="img/banner6.jpg" style="width: 100%;">
+        <div class="text">다가오는 크리스마스, 쿠키 선물은 어떠신가요?</div>
+      </a>
+    </div>
+    <a class="prev" onclick="plusSlides(-1)">◀</a>
+    <a class="next" onclick="plusSlides(1)">▶</a>
+  </div>
+  <br>
+  <div style="text-align: center;">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+    <span class="dot" onclick="currentSlide(4)"></span>
+    <span class="dot" onclick="currentSlide(5)"></span>
+    <span class="dot" onclick="currentSlide(6)"></span>
+  </div>
+
+  <script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    // previouse button, next button
+    function plusSlides(number) {
+      showSlides(slideIndex += number);
+    }
+
+    // dot
+    function currentSlide(number) {
+      showSlides(slideIndex = number);
+    }
+
+    // 화면에 나오는 그림 골라서 보여주기
+    function showSlides(number) {
+      let i;
+      let slides = document.getElementsByClassName('slides');
+      let dots = document.getElementsByClassName('dot');
+
+      if (number > slides.length) { slideIndex = 1; }
+      if (number < 1) { slideIndex = slides.length; }
+
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(' active', '');
+      }
+
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+    }
+  </script>
+
+  <!-- 브랜드 소개 -->
+  <section class="intro">
+    <div class="ment">
+      <ul>
+        <li>
+          <p class="motion1">Handmade dessert shop</p>
+          <h2 class="motion2">수제 디저트 전문점</h2>
+          <img src="img/logo2.png" alt="">
+          <p class="motion3">디저트를 좋아하는 4명이 모여
+            <br> 정성들여 더 맛있게 만들었습니다.
+          </p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 추천메뉴 -->
+  <section class="Menu">
+    <div class="Me-title">
+      <h2>디저트 장인 4인이 추천하는 메뉴</h2>
+    </div>
+    <div class="Me-co">
+      <ul class="Me-li">
+        <li>
+          <p class="Me-img"><img src="../img/브레드02.jpg" alt="추천메뉴"></p>
+          <div class="Me-txt">
+            <h2>크루아상</h2>
+            <p><span class="yellow underline">
+                밤하늘의 초승달?
+                <br>자세히 보니 빵이였다!
+                <br> 촘촘 & 고소 크루아상☆</span></p>
+            <a href="#" class="view">view more <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </li>
+        <li>
+          <div class="Me-po">
+            <p class="Me-img"><img src="img/마카롱02.jpg" alt="추천메뉴"></p>
+            <div class="Me-txt">
+              <h2>마카롱</h2>
+              <p><span class="yellow underline">
+                  알록달록한 재미와 맛!
+                  <br>귀여운 모양도 Good!
+                  <br>마카롱과 함께해요~</span></p>
+              <a href="sidepage02.html" class="view">view more <i class="fa fa-long-arrow-right"
+                  aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </li>
+        <li>
+          <p class="Me-img"><img src="../img/브레드06.jpg" alt="추천메뉴"></p>
+          <div class="Me-txt">
+            <h2>에그타르트</h2>
+            <p><span class="yellow underline">
+                계란과 커스터드크림의 하모니!
+                <br>겉바속촉의 대명사!
+                <br>에그타르트 한입 어떠세요?</span></p>
+            <a href="#" class="view">view more <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </li>
+        <li>
+          <div class="Me-po">
+            <p class="Me-img"><img src="../img/푸딩03.jpg" alt="추천메뉴"></p>
+            <div class="Me-txt">
+              <h2>푸딩</h2>
+              <p><span class="yellow underline">
+                  위는 까만데.. 아래는 노랑?
+                  <br>건드리면 움직인다..??
+                  <br>맛까지 좋은 푸딩이 왔다!</span></p>
+              <a href="#" class="view">view more <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- review section -->
+  <section class="review">
+    <div class="rv-title">
+      <h2>리뷰</h2>
+    </div>
+    <ul class="review-list">
+      <li>
+        <a href="#">
+          <p class="rv-img"><img src="img/s_review.jpg" alt="수정리뷰"></p>
+          <div class="text">
+            <h3>좋아요</h3>
+            <h4>★★★★☆</h4>
+            <p>와플과 과일의 합이 최고! 와플이 눅눅해지지 않고 다 먹을 때까지
+              바삭해서 넘넘 좋았어요~ 자꾸자꾸 손이 가는 맛이에요
+              같이 나온 녹차 아이스크림도 맛있었어요!!</p>
+            <p class="rv-time"><span>BY. 와플킬러</span><br>2022-09-22 15:46:07</p>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <p class="rv-img"><img src="img/d_review.png" alt="동민리뷰"></p>
+          <div class="text">
+            <h3>존맛탱!</h3>
+            <h4>★★★★☆</h4>
+            <p>지인에게 선물받은 알록달록한 마카롱..
+              평소, 마카롱이 너무 달아서 즐겨먹진 않는데
+              007빵 마카롱은 덜 달고 제 입맛에 잘맞네요.
+              한 번에 5개나 먹었습니다... 존맛탱!!</p>
+            <p class="rv-time"><span>BY. 리틀백종원</span><br>2022-10-13 20:07:33</p>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <p class="rv-img"><img src="img/j_review.jpg" alt="진희리뷰"></p>
+          <div class="text">
+            <h3>만족</h3>
+            <h4>★★★★★</h4>
+            <p>근처에 디저트 가게가 새로 생겨서 포장해와서 먹었는데
+              속에 과일도 꽉 차있고 크림도 너무 달지 않고 맛있어요!!
+              적당히 달아서 여러 개 먹어도 질리지 않더라구요 ㅎㅎㅎ</p>
+            <p class="rv-time"><span>BY. 제빵왕베이킹</span><br>2022-11-04 21:20:54</p>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <p class="rv-img"><img src="img/u_review.jpg" alt="의섭리뷰"></p>
+          <div class="text">
+            <h3>괜찮아요</h3>
+            <h4>★★★☆☆</h4>
+            <p>지인이 추천해줘서 한번먹어봤어요!
+              평상시에 빵을 즐겨먹기도 하고, 달콤한게 먹고싶어서 도전하게 되었네요 ㅎㅎ...
+              식후의 디저트로 정말 잘 어울리는거 같아요~</p>
+            <p class="rv-time"><span>BY. 토스트KING★</span><br>2022-11-23 12:16:23</p>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <!-- sidebar -->
+  <div class="sidebar">
+    <ul>
+      <li class="SNS01"><a href="https://www.instagram.com/" target="_blank"><img src="img/SNS인스타.png"></a></li>
+      <li class="SNS02"><a href="https://ko-kr.facebook.com/" target="_blank"><img src="img/SNS페이스북.png"></a></li>
+      <li class="SNS03"><a href="https://www.youtube.com/" target="_blank"><img src="img/SNS유튜브.png"></a></li>
+      <li class="SNS04"><a href="https://www.kakaocorp.com/page/service/service/KakaoTalk" target="_blank"><img
+            src="img/SNS카카오톡.png"></a></li>
+      <li class="top-btn"><a href="#">▲</a></li>
+    </ul>
+  </div>
+
+  <!-- footer -->
+  <footer>
+    <div class="footer">
+      <hr>
+
+      <section class="CS">
+        <div class="CS01"><b>CS</b></div>
+        <div class="CS02">070-0070-0070</div>
+        <div class="CS03">
+          평일 AM 08:00 ~ PM 09:00<br>
+          주말 AM 10:00 ~ PM 07:00<br>
+          (일요일 및 공휴일 휴무)<br>
+        </div>
+      </section>
+
+      <section class="COMPANY">
+        <div class="COMPANY01">
+          <b>COMPANY</b>
+        </div>
+        <div class="COMPANY02">
+          상호명 : 007빵<br>
+          대표자 : 식빵이 (globalit0070@naver.com)<br>
+          전화 : 070-0070-0070<br>
+          주소 : 서울특별시 관악구 남부순환로 1818-2,<br>6층 007빵<br>
+          사업자등록번호 : 221-65-0070<br>
+        </div>
+      </section>
+
+      <section class="BANK">
+        <div class="BANK01">
+          <b>BANK</b>
+        </div>
+        <div class="BANK02">
+          은행 : 국민은행<br>
+          계좌번호 : 349030-05-264839<br>
+          예금주 : 식빵이 <br>
+        </div>
+      </section>
+
+      <section class="map">
+        <div class="map01">
+          <b>오시는 길</b>
+        </div>
+        <div>
+          <iframe class="map02"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3166.1446133469067!2d126.94990701562813!3d37.48091363678425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c9f660dc1a8e5%3A0xe9d099e33e1115b8!2z6riA66Gc67KM7JWE7J207Yuw7J247J6s6rCc67Cc7JuQ!5e0!3m2!1sko!2skr!4v1669047694701!5m2!1sko!2skr"
+            width="250" height="160" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </section>
+
+      <div class="bottom">
+        <hr><br>
+        <p>고객님은 안전거래를 위해 결제시 저희 쇼핑몰에서 가입한 구매안전 서비스를 이용하실 수 있습니다.</p>
+      </div>
+      <div class="btn">
+        <li><br>
+          <button><a href="#" class="btn">이용약관</a></button>
+          <button><a href="#" class="btn">이용안내</a></button>
+          <button><a href="#" class="btn">개인정보처리방침</a></button><br><br><br>
+        </li>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>

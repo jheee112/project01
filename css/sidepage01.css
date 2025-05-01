@@ -1,0 +1,839 @@
+@charset "utf-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Hi+Melody&display=swap');
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');
+
+/*reset*/
+* {
+  cursor: url(/img/logo_cursor.jpg), auto;
+  margin: 0;
+  padding: 0;
+  font-family: 'Hi melody';
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Hi melody';
+  background: rgb(230, 213, 195);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li,
+dl,
+dt,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  font-size: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+img {
+  vertical-align: middle;
+}
+
+a img {
+  border: none;
+}
+
+li {
+  list-style: none;
+}
+
+address,
+em,
+i {
+  font-style: normal;
+}
+
+
+/* header*/
+.logo img {
+  width: 90px;
+  height: auto;
+  margin-left: 50%;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  border-radius: 15%;
+}
+
+
+
+header.menubar {
+  width: 400px;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.menubar {
+  border-top: 1px solid gray;
+  height: 80px;
+  padding-top: 20px;
+  line-height: 50%;
+  margin-left: 20px;
+}
+
+
+.menubar a {
+  color: #000;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.menubar a:hover,
+.menubar a:focus {
+  text-decoration: underline 1px black;
+}
+
+
+.menubar>li {
+  width: 16%;
+  /*20*5=100%*/
+  float: left;
+  text-align: center;
+  letter-spacing: 5px;
+  line-height: 40px;
+  position: relative;
+}
+
+.menubar .submenu {
+  width: 170px;
+  background-color: rgb(236, 233, 224);
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.menubar .submenu a {
+  font-size: 17px;
+  font-weight: normal;
+}
+
+
+/* .submenu>li {
+  line-height: 30px;
+  font-size: 10px;
+  background: red;
+} */
+
+.submenu {
+  height: 0;
+  /*ul의 높이를 안보이게 처리*/
+  overflow: hidden;
+}
+
+.menubar>li:hover {
+  transition: 0.5s;
+}
+
+
+
+.menubar>li:hover .submenu {
+  height: 200px;
+  /*서브메뉴 li한개의 높이 40*5*/
+  transition-duration: 0.7s;
+}
+
+.menubar li:hover .submenu,
+.menubar li:hover .banner {
+  display: block;
+}
+
+.menubar>li>a:focus+.submenu,
+.menubar>li>a:focus+.submenu .banner {
+  display: block;
+}
+
+
+/* 검색창 */
+.container-1 {
+  width: 10px;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+  bottom: -8px;
+  left: 20px;
+}
+
+.container-1 img {
+  margin-left: 20px;
+  width: 20px;
+  height: 20px;
+}
+
+/* sidepage */
+/* 사진 글씨 포함된 행 */
+ul.a1 .detailarea {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+/* 블랙포레스트체리롤 사진 */
+.detailarea .img li img {
+  margin-left: 65%;
+  margin-top: 20%;
+  margin-bottom: 0%;
+  width: 600px;
+  height: 500px;
+  float: left;
+  box-sizing: border-box;
+  border-radius: 5%;
+}
+
+.img {
+  animation-name: img;
+  animation-duration: 1.5s;
+}
+
+@keyframes img {
+  from {
+    opacity: .4
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+/* 사진 옆 글씨 */
+.detailarea .text {
+  width: 40%;
+  padding-left: 22%;
+  float: left;
+  margin-top: 7.5%;
+  margin-bottom: 7%;
+}
+
+/* 블랙포레스트체리롤 타이틀 글씨 */
+.detailarea .text .text_top .title01 .title02 {
+  font-size: 30px;
+  font-weight: bold;
+  float: left;
+  margin-top: -8%;
+}
+
+/* 블랙포레스트체리롤 높이 */
+.title01 {
+  height: 18px;
+}
+
+/* ani 효과1/2 */
+.title02 {
+  width: 250px;
+  animation: typing 1.7s steps(30), infinite;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* ani 효과2/2 */
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+
+/* 소비자가 */
+.detailarea .text .text_top .a1 {
+  height: 30px;
+  margin-bottom: 1%;
+}
+
+/* 판매가 */
+.detailarea .text .text_top .a2 {
+  height: 25px;
+  margin-bottom: 3%;
+}
+
+/* 상품코드 */
+.detailarea .text .text_top .a3 {
+  height: 10%;
+  margin-top: 3%;
+}
+
+/* new hot 아이콘 */
+.detailarea .text .text_top img {
+  width: 25px;
+  position: relative;
+  margin-top: -22%;
+  left: 71%;
+}
+
+/* 30,000원 */
+.detailarea .text .text_top li .line {
+  float: right;
+  margin-right: 54%;
+  text-decoration: line-through;
+}
+
+/* 23,000원 */
+.detailarea .text .text_top li .big {
+  float: right;
+  margin-right: 50%;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* 케이크 단 */
+#select_menu01 {
+  margin-top: 6%;
+}
+
+/* 케이크 사이즈 */
+#select_menu02 {
+  margin-top: 0%;
+}
+
+/* 구매하기 버튼 */
+.detailarea .text .btn01 {
+  margin-top: 5%;
+  padding: 3% 36.5%;
+  font-size: 20px;
+}
+
+/* 구매하기 - 하트 hover */
+.detailarea .text .btn01:hover span {
+  font-size: 0px;
+}
+
+/* 구매하기 - 하트 hover:after */
+.detailarea .text .btn01:hover:after {
+  content: '♥';
+  color: red;
+  font-size: 20px;
+}
+
+/* 장바구니 버튼 */
+.detailarea .text .btn02 {
+  margin-top: 5%;
+  padding: 3% 11.7%;
+  font-size: 20px;
+}
+
+/* 장바구니 - 하트 hover */
+.detailarea .text .btn02:hover span {
+  font-size: 0px;
+}
+
+/* 장바구니 - 하트 hover:after */
+.detailarea .text .btn02:hover:after {
+  content: '♥';
+  color: red;
+  font-size: 20px;
+}
+
+/* 관심상품 버튼 */
+.detailarea .text .btn03 {
+  padding: 3% 11.7%;
+  text-align: center;
+  font-size: 20px;
+}
+
+/* 관심상품 - 하트 hover */
+.detailarea .text .btn03:hover span {
+  font-size: 0px;
+}
+
+/* 관심상품 - 하트 hover:after */
+.detailarea .text .btn03:hover:after {
+  content: '♥';
+  color: red;
+  font-size: 20px;
+}
+
+/* 카카오페이 네이버페이 이미지 */
+.detailarea .text img {
+  width: 60px;
+}
+
+/* 카카오페이 버튼 */
+.detailarea .text ul button.kpay {
+  background-image: url(/img/sidepage09_5.png);
+  padding: 5% 23.5%;
+  cursor: pointer;
+  margin-top: 5%;
+  border: 0.5px solid gray;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* 카카오페이 버튼 hover */
+.detailarea .text ul button.kpay:hover {
+  background-image: url(/img/sidepage09_4.png);
+  filter: brightness(1.08)
+}
+
+/* 네이버페이 버튼 */
+.detailarea .text ul button.npay {
+  background-image: url(/img/sidepage10_5.png);
+  padding: 5% 23.5%;
+  cursor: pointer;
+  margin-top: 5%;
+  border: 0.5px solid gray;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* 네이버페이 버튼 hover */
+.detailarea .text ul button.npay:hover {
+  background-image: url(/img/sidepage10_4.png);
+  filter: brightness(1.08)
+}
+
+/* 메인 */
+main {
+  text-align: center;
+}
+
+/* 메인 중 배송관련 버튼 */
+main .mainbutton .btn01 {
+  padding: 1% 2%;
+}
+
+/* 메인 중 배송관련 버튼 hover */
+main .mainbutton .btn01:hover {
+  transform: rotateZ(5deg);
+  border: 1px solid black;
+}
+
+/* 메인 중 배송관련 글씨 */
+main .mainbutton .btn01 a {
+  font-size: 20px;
+}
+
+/* 메인 중 상품정보 버튼 */
+main .mainbutton .btn02 {
+  padding: 1% 2%;
+}
+
+/* 메인 중 상품정보 버튼 hover */
+main .mainbutton .btn02:hover {
+  transform: rotateZ(5deg);
+  border: 1px solid black;
+}
+
+/* 메인 중 상품정보 글씨 */
+main .mainbutton .btn02 a {
+  font-size: 20px;
+}
+
+/* 메인 중 구매정보 버튼 */
+main .mainbutton .btn03 {
+  padding: 1% 2%;
+}
+
+/* 메인 중 구매정보 버튼 hover */
+main .mainbutton .btn03:hover {
+  transform: rotateZ(5deg);
+  border: 1px solid black;
+}
+
+/* 메인 중 구매정보 글씨 */
+main .mainbutton .btn03 a {
+  font-size: 20px;
+}
+
+/* 메인 중 상품후기 버튼 */
+main .mainbutton .btn04 {
+  padding: 1% 2%;
+}
+
+/* 메인 중 상품후기 버튼 hover */
+main .mainbutton .btn04:hover {
+  transform: rotateZ(5deg);
+  border: 1px solid black;
+}
+
+/* 메인 중 상품후기 글씨 */
+main .mainbutton .btn04 a {
+  font-size: 20px;
+}
+
+/* 메인 중 상품문의 버튼 */
+main .mainbutton .btn05 {
+  padding: 1% 2%;
+}
+
+/* 메인 중 상품문의 버튼 hover */
+main .mainbutton .btn05:hover {
+  transform: rotateZ(5deg);
+  border: 1px solid black;
+}
+
+/* 메인 중 상품문의 글씨 */
+main .mainbutton .btn05 a {
+  font-size: 20px;
+}
+
+/* 더보기 버튼 */
+main .maintext .more {
+  padding: 1% 4%;
+  position: relative;
+  top: -320px;
+  background: rgb(231, 231, 231);
+  cursor: pointer;
+  filter: brightness(1);
+}
+
+/* 더보기 버튼 hover */
+main .maintext .more:hover {
+  font-weight: bold;
+  background-color: rgb(124, 206, 127);
+  transition: all 0.5s;
+}
+
+/* 더보기 글씨 */
+main .maintext .more {
+  font-size: 30px;
+}
+
+/* 메인 중 블러처리 된 사진 */
+main .maintext .img01 img {
+  margin-top: 2%;
+  width: 30%;
+}
+
+main .maintext .img02 img {
+  margin-top: 2%;
+  width: 20%;
+  float: left;
+  margin-left: 27%;
+}
+
+main .maintext .img03 img {
+  margin-top: 2%;
+  width: 20%;
+  float: right;
+  margin-right: 27%;
+}
+
+main .maintext .img04 {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.94) 83%, rgba(255, 255, 255, 0.98) 91%, #fff);
+  filter: blur(5px);
+}
+
+/* sidebar 너비 공통 */
+.sidebar ul li img {
+  width: 30px;
+}
+
+/* sidebar 인스타 */
+.sidebar ul li.SNS01 {
+  height: 36px;
+  margin-left: 1658px;
+  position: fixed;
+  text-align: center;
+  right: 10px;
+  bottom: 70%;
+  cursor: pointer;
+  z-index: 99999;
+}
+
+/* sidebar 인스타 hover */
+.sidebar ul li.SNS01:hover {
+  width: 2%;
+}
+
+
+/* sidebar 페이스북 */
+.sidebar ul li.SNS02 {
+  height: 36px;
+  margin-left: 1658px;
+  position: fixed;
+  text-align: center;
+  right: 10px;
+  bottom: 65%;
+  cursor: pointer;
+  z-index: 99999;
+}
+
+/* sidebar 페이스북 hover */
+.sidebar ul li.SNS02:hover {
+  width: 2%;
+}
+
+/* sidebar 유튜브 */
+.sidebar ul li.SNS03 {
+  height: 36px;
+  margin-left: 1658px;
+  position: fixed;
+  text-align: center;
+  right: 10px;
+  bottom: 60%;
+  cursor: pointer;
+  z-index: 99999;
+}
+
+/* sidebar 유튜브 hover*/
+.sidebar ul li.SNS03:hover {
+  width: 2%;
+}
+
+/* sidebar 카카오톡 */
+.sidebar ul li.SNS04 {
+  height: 36px;
+  margin-left: 1658px;
+  position: fixed;
+  text-align: center;
+  right: 10px;
+  bottom: 55%;
+  cursor: pointer;
+  z-index: 99999;
+}
+
+/* sidebar 카카오톡 */
+.sidebar ul li.SNS04:hover {
+  width: 2%;
+}
+
+/* sidebar 맨 위로 가기 */
+.sidebar ul .top-btn {
+  margin-left: 1658px;
+  position: fixed;
+  text-align: center;
+  right: 10px;
+  bottom: 10%;
+  cursor: pointer;
+  z-index: 99999;
+  font-size: 30px;
+}
+
+html {
+  /* 맨 위 버튼 눌렀을 때 스무스하게 올라가는 css */
+  scroll-behavior: smooth;
+}
+
+/* footer 공통 */
+footer .footer {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* footer CS */
+footer .footer .CS {
+  padding-top: 40px;
+  float: left;
+  text-align: center;
+  width: 25%;
+}
+
+footer .footer .CS .CS01 {
+  font-size: 18px;
+}
+
+footer .footer .CS .CS02 {
+  font-size: 18px;
+}
+
+footer .footer .CS .CS03 {
+  font-size: 18px;
+}
+
+/* footer COMPANY */
+footer .footer .COMPANY {
+  padding-top: 20px;
+  float: left;
+  text-align: center;
+  width: 25%;
+}
+
+footer .footer .COMPANY .COMPANY01 {
+  font-size: 18px;
+}
+
+footer .footer .COMPANY .COMPANY02 {
+  font-size: 18px;
+}
+
+/* footer BANK */
+footer .footer .BANK {
+  padding-top: 50px;
+  float: left;
+  text-align: center;
+  width: 25%;
+}
+
+footer .footer .BANK .BANK01 {
+  font-size: 18px;
+}
+
+footer .footer .BANK .BANK02 {
+  font-size: 18px;
+}
+
+/* footer 오시는 길 */
+footer .footer .map01 {
+  margin-bottom: 5px;
+  margin-right: 15%;
+  float: right;
+  padding-top: 5px;
+  font-size: 18px;
+  text-align: center;
+}
+
+/* footer 구글지도 */
+footer .footer .map02 {
+  width: 17%;
+}
+
+/* footer text 공통 */
+footer .bottom {
+  padding-top: 8px;
+  text-align: center;
+}
+
+/* footer text */
+footer .bottom p {
+  font-size: 12px;
+}
+
+/* footer text 버튼 */
+footer .btn {
+  padding-top: 5px;
+  text-align: center;
+  font-size: 10px;
+}
+
+/* 1025px ~ 1440px PC Mode(Laptop L) */
+@media screen and (max-width:1440px) {
+  header {
+    min-width: 1025px;
+    width: 95%;
+    margin: 0 2%;
+  }
+
+  header .logo {
+    margin: 0 auto;
+  }
+
+  .a1 {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .a1 .img {
+    margin-left: -2.25%;
+  }
+
+  /* new hot 아이콘 */
+
+  .a1 .detailarea .img li {
+    margin-left: -60%;
+    margin-top: -15%;
+  }
+
+  .detailarea .text {
+    width: 46%;
+  }
+
+  .sidebar li {
+    margin-right: 20%;
+  }
+
+  .footer {
+    width: 95%;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+/* 769px ~ 1024px : PC Mode(Laptop) */
+@media screen and (max-width:1024px) {
+  header {
+    min-width: 769px;
+    width: 90%;
+    margin: 0 3%;
+  }
+
+  header .logo {
+    margin: 0 auto;
+  }
+
+  .sidebar li:nth-child(1) {
+    margin-right: 42%;
+    top: 20%;
+  }
+
+  .sidebar li:nth-child(2) {
+    margin-right: 42%;
+    top: 23%;
+  }
+
+  .sidebar li:nth-child(3) {
+    margin-right: 42%;
+    top: 26%;
+  }
+
+  .sidebar li:nth-child(4) {
+    margin-right: 42%;
+    top: 29%;
+  }
+
+  .sidebar li:nth-child(5) {
+    margin-right: 42%;
+    top: 52%;
+  }
+
+
+  .a1 {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  /* 사진 옆 글씨 */
+  .detailarea .text {
+    margin-left: -5%;
+    width: 55%;
+  }
+
+  .a1 .img {
+    margin-left: -18%;
+    margin-top: -11%;
+    scale: 0.75;
+  }
+
+  /* new hot 아이콘 */
+
+  .a1 .detailarea .img li {
+    margin-left: -60%;
+    margin-top: -15%;
+  }
+
+  .footer .bottom {
+    margin-top: 3%;
+  }
+
+  footer .footer .map01 {
+    margin-right: 9.5%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+  }
+}

@@ -1,0 +1,905 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Hi+Melody&display=swap');
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');
+
+/*reset*/
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Hi melody';
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Hi melody';
+  background: rgb(230, 213, 195);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li,
+dl,
+dt,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  font-size: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+img {
+  vertical-align: middle;
+}
+
+a img {
+  border: none;
+}
+
+li {
+  list-style: none;
+}
+
+address,
+em,
+i {
+  font-style: normal;
+}
+
+/* header*/
+.logo img {
+  width: 90px;
+  height: auto;
+  margin-left: 50%;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  border-radius: 15%;
+}
+
+
+header.menubar {
+  width: 400px;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.menubar {
+  border-top: 1px solid gray;
+  height: 80px;
+  padding-top: 20px;
+  line-height: 50%;
+  margin-left: 20px;
+}
+
+
+.menubar a {
+  color: #000;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.menubar a:hover,
+.menubar a:focus {
+  text-decoration: underline 1px black;
+}
+
+
+.menubar>li {
+  width: 16%;
+  /*20*5=100%*/
+  float: left;
+  text-align: center;
+  letter-spacing: 5px;
+  line-height: 40px;
+  position: relative;
+}
+
+.menubar .submenu {
+  width: 170px;
+  background-color: rgb(236, 233, 224);
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.menubar .submenu a {
+  font-size: 17px;
+  font-weight: normal;
+}
+
+
+/* .submenu>li {
+    line-height: 30px;
+    font-size: 10px;
+    background: red;
+  } */
+
+.submenu {
+  height: 0;
+  /*ul의 높이를 안보이게 처리*/
+  overflow: hidden;
+}
+
+.menubar>li:hover {
+  transition: 0.5s;
+}
+
+
+
+.menubar>li:hover .submenu {
+  height: 200px;
+  /*서브메뉴 li한개의 높이 40*5*/
+  transition-duration: 0.7s;
+}
+
+.menubar li:hover .submenu,
+.menubar li:hover .banner {
+  display: block;
+}
+
+.menubar>li>a:focus+.submenu,
+.menubar>li>a:focus+.submenu .banner {
+  display: block;
+}
+
+
+/* 검색창 */
+.container-1 {
+  width: 10px;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+  bottom: -8px;
+  left: 20px;
+}
+
+.container-1 img {
+  margin-left: 20px;
+  width: 20px;
+  height: 20px;
+}
+
+
+/* banner */
+.slides {
+  display: none;
+}
+
+img {
+  vertical-align: middle;
+}
+
+.banner {
+  max-width: 1700px;
+  /* 90% ?? */
+  position: relative;
+  margin: auto;
+  z-index: 4;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: #777;
+  font-weight: blod;
+  font-size: 40px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.banner .text {
+  color: #f2f2f2;
+  background: rgba(0, 0, 0, 0.6);
+  font-size: 24px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+.slideNumber {
+  color: #000;
+  font-size: 18px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+  background-color: #717171;
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: .4
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+@media only screen and (max-width: 300px) {
+
+  .prev,
+  .next,
+  .banner .text {
+    font-size: 11px;
+  }
+}
+
+/* 브랜드 소개 */
+section.intro {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+section.intro .ment {
+  text-align: center;
+  line-height: 1.2;
+  padding: 7% 0 0;
+}
+
+section.intro .ment ul li {
+  list-style: none;
+  padding-bottom: 5%;
+}
+
+section.intro .ment ul li p.motion1 {
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 2;
+}
+
+section.intro .ment ul li h2.motion2 {
+  font-size: 55px;
+}
+
+section.intro .ment ul li img {
+  width: 200px;
+  height: auto;
+  margin-bottom: 1%;
+  border-radius: 15%;
+}
+
+section.intro .ment ul li p.motion3 {
+  font-size: 25px;
+  line-height: 1.7;
+  font-weight: 300;
+  letter-spacing: 3px;
+}
+
+
+/* 추천메뉴 */
+section.Menu {
+  padding: 10px 0;
+  width: 100%;
+  height: 700px;
+  clear: both;
+}
+
+section.Menu .Me-title {
+  color: rgb(94, 65, 54);
+  text-align: center;
+}
+
+section.Menu .Me-title h2 {
+  font-size: 45px;
+  font-weight: bold;
+  padding-top: 40px;
+  margin: 10px 0 5px;
+}
+
+section.Menu .Me-co {
+  margin: 0 12%;
+  display: flex;
+  width: 100%;
+
+}
+
+section.Menu ul {
+  width: 100%;
+  padding: 30px 0;
+  overflow: hidden;
+
+}
+
+section.Menu ul li {
+  list-style: none;
+  display: flex;
+  margin: 20px 70px;
+  float: left;
+  width: 30%;
+}
+
+section.Menu ul li .Me-po {
+  list-style: none;
+  display: flex;
+  margin: 20px 0px;
+  float: left;
+  width: 30%;
+  margin-top: -1%;
+}
+
+/* img size : 577 * 577 로 통일 */
+section.Menu ul li .Me-img img {
+  width: 200px;
+  align-self: center;
+  border-radius: 50%;
+  margin-left: 30px;
+  filter: drop-shadow(4px 4px 4px);
+  position: relative;
+}
+
+section.Menu ul li .Me-po .Me-img img {
+  width: 200px;
+  align-self: center;
+  border-radius: 50%;
+  margin-left: 30px;
+  position: relative;
+}
+
+/* Flashing */
+section.Menu ul li p.Me-img:hover img {
+  opacity: 1;
+  animation: flash 3s;
+}
+
+@keyframes flash {
+  0% {
+    opacity: 0.4;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+section.Menu ul li .Me-txt {
+  margin-left: 50px;
+  margin-top: 30px;
+  display: inline-block;
+  position: relative;
+}
+
+section.Menu ul li .Me-po .Me-txt {
+  margin-left: 50px;
+  margin-top: 30px;
+  position: relative;
+}
+
+section.Menu ul li .Me-txt h2 {
+  font-size: 30px;
+  font-weight: bold;
+  color: rgb(126, 88, 74);
+}
+
+section.Menu ul li .Me-po .Me-txt h2 {
+  font-size: 30px;
+  font-weight: bold;
+  color: rgb(126, 88, 74);
+}
+
+section.Menu ul li .Me-txt p {
+  font-size: 23px;
+  width: 300px;
+  color: rgb(126, 88, 74);
+}
+
+section.Menu ul li .Me-po .Me-txt p {
+  font-size: 23px;
+  width: 300px;
+  color: rgb(126, 88, 74);
+}
+
+/* view more */
+.Menu .Me-li .Me-txt .view {
+  display: block;
+  width: 180px;
+  position: relative;
+  padding: 8px 0;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  overflow: hidden;
+  color: rgb(135, 119, 117);
+  font-weight: bold;
+  transform: skewX(-15deg) translateX(5px);
+  transition: all 0.15s;
+  right: -6px;
+}
+
+.Menu .Me-li .Me-txt .view:hover,
+.Menu .Me-li .Me-txt .view:focus {
+  transform: skewX(0deg) translateX(0);
+  font-weight: bold;
+  transition: all 0.3s;
+  color: black;
+}
+
+/* 밑줄 효과 */
+.underline {
+  line-height: 1.2;
+  font-family: inherit;
+  background-image: linear-gradient(transparent calc(100% - 3px), #000 3px);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  transition: background-size 0.8s;
+  cursor: pointer;
+}
+
+.underline.yellow {
+  background-image: linear-gradient(transparent 60%, #fadf67 40%);
+}
+
+.underline:hover {
+  background-size: 100% 100%;
+}
+
+
+/* section review */
+section.review {
+  padding: 10px 0;
+  height: 600px;
+}
+
+section.review div.rv-title {
+  color: rgb(94, 65, 54);
+  text-align: center;
+}
+
+section.review div.rv-title h2 {
+  font-size: 45px;
+  margin: 10px 0 5px;
+  padding-top: 40px;
+  font-weight: bold;
+}
+
+section.review ul {
+  padding: 30px 10%;
+  overflow: hidden;
+  display: inline-block;
+}
+
+section.review ul li {
+  float: left;
+  width: 23%;
+  margin-left: 1.6%;
+  border: 1px solid rgb(135, 119, 117);
+}
+
+section.review ul li a {
+  background-color: rgb(224, 204, 182);
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+section.review ul li a:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transition: all 0.5s;
+
+}
+
+section.review ul li a p.rv-img {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* img = 225.650 x 169.238 */
+section.review ul li a p.rv-img img {
+  width: 100%;
+  height: 169.238px;
+}
+
+section.review ul li a p.rv-img img:hover {
+  transform: scale(1.2);
+  transition: all 0.5s;
+}
+
+section.review ul li a .text {
+
+  color: rgb(126, 88, 74);
+  padding: 10px;
+  text-align: center;
+}
+
+section.review ul li a .text h3 {
+  font-size: 20px;
+}
+
+section.review ul li a .text h4 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+
+section.review ul li a .text p {
+  font-size: 16px;
+}
+
+section.review ul li a .text p.rv-time {
+  margin-top: 30px;
+  font-size: 14px;
+  position: relative;
+  bottom: 0;
+}
+
+section.review ul li a .text p.rv-time span {
+  font-weight: bold;
+}
+
+/* sidebar 너비 공통 */
+.sidebar ul li img {
+  width: 30px;
+}
+
+/* sidebar 인스타 */
+.sidebar ul li.SNS01 {
+  height: 36px;
+  margin-left: 1658px;
+  position: fixed;
+  text-align: center;
+  right: 10px;
+  bottom: 70%;
+  cursor: pointer;
+  z-index: 99999;
+}
+
+/* sidebar 인스타 hover */
+.sidebar ul li.SNS01:hover {
+  width: 2%;
+}
+
+
+/* sidebar 페이스북 */
+.sidebar ul li.SNS02 {
+  height: 36px;
+  margin-left: 1658px;
+  position: fixed;
+  text-align: center;
+  right: 10px;
+  bottom: 65%;
+  cursor: pointer;
+  z-index: 99999;
+}
+
+/* sidebar 페이스북 hover */
+.sidebar ul li.SNS02:hover {
+  width: 2%;
+}
+
+/* sidebar 유튜브 */
+.sidebar ul li.SNS03 {
+  height: 36px;
+  margin-left: 1658px;
+  position: fixed;
+  text-align: center;
+  right: 10px;
+  bottom: 60%;
+  cursor: pointer;
+  z-index: 99999;
+}
+
+/* sidebar 유튜브 hover*/
+.sidebar ul li.SNS03:hover {
+  width: 2%;
+}
+
+/* sidebar 카카오톡 */
+.sidebar ul li.SNS04 {
+  height: 36px;
+  margin-left: 1658px;
+  position: fixed;
+  text-align: center;
+  right: 10px;
+  bottom: 55%;
+  cursor: pointer;
+  z-index: 99999;
+}
+
+/* sidebar 카카오톡 */
+.sidebar ul li.SNS04:hover {
+  width: 2%;
+}
+
+/* sidebar 맨 위로 가기 */
+.sidebar ul .top-btn {
+  margin-left: 1658px;
+  position: fixed;
+  text-align: center;
+  right: 10px;
+  bottom: 10%;
+  cursor: pointer;
+  z-index: 99999;
+  font-size: 30px;
+}
+
+html {
+  /* 맨 위 버튼 눌렀을 때 스무스하게 올라가는 css */
+  scroll-behavior: smooth;
+}
+
+/* footer 공통 */
+footer .footer {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* footer CS */
+footer .footer .CS {
+  padding-top: 40px;
+  float: left;
+  text-align: center;
+  width: 25%;
+}
+
+footer .footer .CS .CS01 {
+  font-size: 18px;
+}
+
+footer .footer .CS .CS02 {
+  font-size: 18px;
+}
+
+footer .footer .CS .CS03 {
+  font-size: 18px;
+}
+
+/* footer COMPANY */
+footer .footer .COMPANY {
+  padding-top: 20px;
+  float: left;
+  text-align: center;
+  width: 25%;
+}
+
+footer .footer .COMPANY .COMPANY01 {
+  font-size: 18px;
+}
+
+footer .footer .COMPANY .COMPANY02 {
+  font-size: 18px;
+}
+
+/* footer BANK */
+footer .footer .BANK {
+  padding-top: 50px;
+  float: left;
+  text-align: center;
+  width: 25%;
+}
+
+footer .footer .BANK .BANK01 {
+  font-size: 18px;
+}
+
+footer .footer .BANK .BANK02 {
+  font-size: 18px;
+}
+
+/* footer 오시는 길 */
+footer .footer .map01 {
+  margin-bottom: 5px;
+  margin-right: 15%;
+  float: right;
+  padding-top: 5px;
+  font-size: 18px;
+  text-align: center;
+}
+
+/* footer 구글지도 */
+footer .footer .map02 {
+  width: 17%;
+}
+
+/* footer text 공통 */
+footer .bottom {
+  padding-top: 8px;
+  text-align: center;
+}
+
+/* footer text */
+footer .bottom p {
+  font-size: 12px;
+}
+
+/* footer text 버튼 */
+footer .btn {
+  padding-top: 5px;
+  text-align: center;
+  font-size: 10px;
+}
+
+/* 1025px ~ 1440px PC Mode(Laptop L) */
+@media screen and (max-width:1440px) {
+  header {
+    min-width: 1025px;
+    width: 95%;
+    margin: 0 2%;
+  }
+
+  header .logo {
+    margin: 0 auto;
+  }
+
+  .banner {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    margin-top: 50px;
+  }
+
+  .sidebar li {
+    margin-right: 11%;
+  }
+
+
+  .intro .ment {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .Menu {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .Menu .Me-li {
+    margin-left: -3.5%;
+  }
+
+  .review {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .footer {
+    width: 95%;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+
+/* 769px ~ 1024px : PC Mode(Laptop) */
+@media screen and (max-width:1024px) {
+  header {
+    min-width: 769px;
+    width: 90%;
+    margin: 0 3%;
+  }
+
+  header .logo {
+    margin: 0 auto;
+  }
+
+  .banner {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    margin-top: 50px;
+  }
+
+  .sidebar li {
+    margin-right: 11%;
+  }
+
+
+  .intro .ment {
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  .intro .ment ul li h2 {
+    text-align: center;
+    margin: 0 auto;
+    width: 75%;
+  }
+
+  .Menu {
+    float: left;
+    height: auto;
+  }
+
+  .Menu ul.Me-li {
+    width: 100%;
+    margin-left: -16%;
+  }
+
+  .Menu ul.Me-li .Me-txt {
+    margin-left: 15px;
+  }
+
+  .Menu ul.Me-li .Me-po .Me-txt {
+    margin-left: 15px;
+  }
+
+  .Menu ul.Me-li .Me-po .Me-img {
+    scale: 0.75;
+    margin-left: 50px;
+  }
+
+  .Menu ul.Me-li .Me-img {
+    scale: 0.8;
+  }
+
+  .review {
+    width: 95%;
+    height: auto;
+    overflow: auto;
+  }
+
+  .footer .bottom {
+    margin-top: 3%;
+  }
+
+  footer .footer .map01 {
+    margin-right: 9.5%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+  }
+}
